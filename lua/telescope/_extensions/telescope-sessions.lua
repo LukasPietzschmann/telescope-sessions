@@ -1,7 +1,6 @@
 local has_telescope, telescope = pcall(require, 'telescope')
 local has_sessions = pcall(require, 'sessions')
-local TelescopeSessions = require('telescope._extensions.session-lens.main')
-
+local TelescopeSessions = require('telescope._extensions.telescope-sessions.main')
 
 if not has_telescope then
 	error('This plugin requires telescope.nvim (https://github.com/nvim-telescope/telescope.nvim)')
@@ -14,6 +13,6 @@ return telescope.register_extension {
 	setup = function(ext_config, config)
 	end,
 	exports = {
-		stuff = TelescopeSessions.search_sessions
+		search_sessions = TelescopeSessions.search_sessions
 	},
 }
