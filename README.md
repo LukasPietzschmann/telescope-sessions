@@ -12,6 +12,8 @@ Or straight from the plugin's path with lua
 :lua require('telescope-sessions').search_session()
 ```
 
+You can press `C-d` on any Item in the picker to delete the session.
+
 ## Installation
 Install with your favorite Neovim package manager. Just make sure that you also install [sessions.nvim](https://github.com/LukasPietzschmann/sessions.nvim)!
 
