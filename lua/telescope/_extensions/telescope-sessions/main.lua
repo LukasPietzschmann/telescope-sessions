@@ -11,11 +11,17 @@ M.search_sessions = function ()
 	local opts = {
 		prompt_title = 'Sessions',
 		cwd = base_path,
-		attach_mappings = function(prompt_bufnr, _)
+		attach_mappings = function(prompt_bufnr, map)
 			actions.select_default:replace(function()
 				actions.close(prompt_bufnr)
 				local selection = action_state.get_selected_entry()
 				sessions.load(selection[1])
+			end)
+			map('i', '<C-d>', function()
+				local current_picker = action_state.get_current_picker(prompt_bufnr)
+				current_picker:delete_selection(function(selection)
+					sessions.delete(selection[1])
+				end)
 			end)
 			return true
 		end,
