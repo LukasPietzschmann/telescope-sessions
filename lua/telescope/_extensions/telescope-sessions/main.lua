@@ -1,13 +1,13 @@
 local M = {}
 
-local sessions = require'sessions'
+local sessions = require 'sessions'
 local base_path = sessions.config.session_base_path
 
-local actions = require'telescope.actions'
-local action_state = require'telescope.actions.state'
-local themes = require'telescope.themes'
+local actions = require 'telescope.actions'
+local action_state = require 'telescope.actions.state'
+local themes = require 'telescope.themes'
 
-M.search_sessions = function ()
+M.search_sessions = function()
 	local opts = {
 		prompt_title = 'Sessions',
 		cwd = base_path,
@@ -27,7 +27,7 @@ M.search_sessions = function ()
 		end,
 	}
 	local theme_opts = themes.get_dropdown()
-	local find_files_conf = vim.tbl_deep_extend("force", opts, theme_opts, {
+	local find_files_conf = vim.tbl_deep_extend('force', opts, theme_opts, {
 		previewer = false,
 		disable_devicons = true,
 	})
